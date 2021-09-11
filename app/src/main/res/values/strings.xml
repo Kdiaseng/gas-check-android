@@ -24,4 +24,7 @@
     <string name="value_250">250</string>
     <string name="others">Outros</string>
     <string name="register_location">Registrar local</string>
+    <string name="ask_gas_message">Quanto você deseja abastecer?</string>
+    <string name="confirm_action">Confirmar</string>
+    <string name="value_0">0,00</string>
 </resources>

@@ -422,6 +422,7 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/material_card_other_value"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
