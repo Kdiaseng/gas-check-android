@@ -8,10 +8,10 @@
     <item
         android:id="@+id/historyFragment"
         android:icon="@drawable/ic_history"
-        android:title="@string/home_action" />
+        android:title="@string/history_action" />
 
     <item
         android:id="@+id/favoriteFragment"
         android:icon="@drawable/ic_favorite"
-        android:title="@string/home_action" />
+        android:title="@string/favorite_action" />
 </menu>
