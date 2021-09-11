@@ -9,7 +9,11 @@
         android:id="@+id/homeFragment"
         android:name="br.com.gascheck.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_inputDataGasDialogFragment"
+            app:destination="@id/inputDataGasDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="br.com.gascheck.ui.history.HistoryFragment"
@@ -20,4 +24,10 @@
         android:name="br.com.gascheck.ui.favorite.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
+
+    <dialog
+        tools:layout="@layout/dialog_input_data_gas"
+        android:id="@+id/inputDataGasDialogFragment"
+        android:name="br.com.gascheck.ui.dialog.inputDataGas.InputDataGasDialogFragment"
+        android:label="InputDataGasDialogFragment" />
 </navigation>

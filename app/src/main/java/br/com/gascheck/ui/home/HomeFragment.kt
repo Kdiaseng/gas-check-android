@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import br.com.gascheck.R
 import br.com.gascheck.databinding.FragmentHomeBinding
 import com.github.mikephil.charting.animation.Easing
@@ -31,6 +32,13 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupChart()
         setDataToChart()
+        setupListener()
+    }
+
+    private fun setupListener() {
+        binding.floatingAddDataGas.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_inputDataGasDialogFragment)
+        }
     }
 
     private fun setupChart() {
