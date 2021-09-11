@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_10"
+    android:background="@color/floral"
     android:padding="16dp"
     tools:context="ui.home.HomeFragment">
 
@@ -81,6 +81,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="85dp"
                 android:elevation="10dp"
+                android:backgroundTint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -124,6 +125,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="8dp"
                         android:text="@string/spend_value"
+                        android:textColor="@color/flame"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -149,6 +151,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="@string/spend_value"
+                        android:textColor="@color/flame"
                         android:textSize="14sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="@+id/text_gasoline_value"
@@ -170,7 +173,8 @@
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add" />
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@color/white_10" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,11 +1,11 @@
 package br.com.gascheck.ui.home
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import br.com.gascheck.R
 import br.com.gascheck.databinding.FragmentHomeBinding
 import com.github.mikephil.charting.animation.Easing
@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
             holeRadius = 50f
             transparentCircleRadius = 60f
             isDrawHoleEnabled = true
-            setHoleColor(Color.WHITE)
+            setHoleColor(ContextCompat.getColor(requireContext(), R.color.dutch))
             //add text in center
             setDrawCenterText(true);
             centerText = "Gastos de combustível"
@@ -78,8 +78,8 @@ class HomeFragment : Fragment() {
 
     private fun getColorsToChart() =
         arrayListOf(
-            Color.parseColor("#4DD0E1"),
-            Color.parseColor("#FFF176")
+            ContextCompat.getColor(requireContext(), R.color.bone),
+            ContextCompat.getColor(requireContext(), R.color.blast)
         )
 
     private fun getPieEntries(gasoline: Float, alcohol: Float) =
