@@ -29,53 +29,62 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupChart()
+        setDataToChart()
+    }
 
-        val dataEntries = ArrayList<PieEntry>()
-        dataEntries.add(PieEntry(80f, getString(R.string.gasoline_label)))
-        dataEntries.add(PieEntry(20f, getString(R.string.alcohol_label)))
-
-        val colors: ArrayList<Int> = ArrayList()
-        colors.add(Color.parseColor("#4DD0E1"))
-        colors.add(Color.parseColor("#FFF176"))
-
-        val dataSet = PieDataSet(dataEntries, "")
-        val data = PieData(dataSet)
-
+    private fun setupChart() {
         with(binding.chartGas) {
             setUsePercentValues(true)
             description.text = ""
-            //hollow pie chart
             isDrawHoleEnabled = false
             setTouchEnabled(false)
             setDrawEntryLabels(false)
-            //adding padding
             setExtraOffsets(20f, 0f, 20f, 20f)
             setUsePercentValues(true)
             isRotationEnabled = false
             setDrawEntryLabels(false)
             legend.orientation = Legend.LegendOrientation.VERTICAL
             legend.isWordWrapEnabled = true
+        }
+    }
 
-            data.setValueFormatter(PercentFormatter())
-            dataSet.sliceSpace = 9f
-            dataSet.colors = colors
-            this.data = data
-            data.setValueTextSize(16f)
+    private fun setDataToChart() {
+        with(binding.chartGas) {
+            this.data = buildDataToChart()
             setExtraOffsets(5f, 8f, 5f, 5f)
             animateY(1400, Easing.EaseInOutQuad)
-
             holeRadius = 50f
             transparentCircleRadius = 60f
             isDrawHoleEnabled = true
             setHoleColor(Color.WHITE)
-
             //add text in center
             setDrawCenterText(true);
             centerText = "Gastos de combustível"
-
             invalidate()
         }
-
-
     }
+
+    private fun buildDataToChart(): PieData {
+        val dataSet = PieDataSet(getPieEntries(50f, 50f), "").apply {
+            sliceSpace = 9f
+            colors = getColorsToChart()
+        }
+        return PieData(dataSet).apply {
+            setValueFormatter(PercentFormatter())
+            setValueTextSize(16f)
+        }
+    }
+
+    private fun getColorsToChart() =
+        arrayListOf(
+            Color.parseColor("#4DD0E1"),
+            Color.parseColor("#FFF176")
+        )
+
+    private fun getPieEntries(gasoline: Float, alcohol: Float) =
+        arrayListOf(
+            PieEntry(gasoline, getString(R.string.gasoline_label)),
+            PieEntry(alcohol, getString(R.string.alcohol_label))
+        )
 }
