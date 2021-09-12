@@ -1,6 +1,7 @@
 package br.com.gascheck.ui.dialog.inputDataGas
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,10 +27,9 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.materialCardOtherValue.setOnClickListener {
+        binding.circleButtonOther.setOnClickListenerCircleButton {
             findNavController().navigate(R.id.action_inputDataGasDialogFragment_to_inputOtherValueDialogFragment)
         }
-
     }
 
 

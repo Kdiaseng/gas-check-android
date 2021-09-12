@@ -19,10 +19,10 @@
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup"
-        android:padding="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_dialog_gas"
@@ -62,14 +62,14 @@
         android:id="@+id/switch_location"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:switchPadding="5dp"
         android:layout_marginTop="8dp"
         android:checked="false"
         android:text="@string/register_location"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/chipGroup"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:switchPadding="5dp" />
 
     <View
         android:id="@+id/view_second"
@@ -103,157 +103,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_choice_value">
 
-        <com.google.android.material.card.MaterialCardView
+        <br.com.gascheck.util.CircleButtonValue
+            android:id="@+id/circle_button_20"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="30dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="2dp"
-            app:rippleColor="@color/flame"
-            app:strokeColor="@color/pale"
-            app:strokeWidth="1dp">
+            app:circle_button_value="@string/value_20" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_real"
-                    android:textAlignment="center"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/value_20"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
+        <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="30dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="2dp"
-            app:rippleColor="@color/flame"
-            app:strokeColor="@color/pale"
-            app:strokeWidth="1dp">
+            app:circle_button_value="@string/value_30" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_real"
-                    android:textAlignment="center"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/value_30"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
+        <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="30dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="2dp"
-            app:rippleColor="@color/flame"
-            app:strokeColor="@color/pale"
-            app:strokeWidth="1dp">
+            app:circle_button_value="@string/value_50" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_real"
-                    android:textAlignment="center"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/value_50"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
+        <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="2dp"
-            app:rippleColor="@color/flame"
-            app:strokeColor="@color/pale"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_real"
-                    android:textAlignment="center"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/value_70"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
+            android:layout_marginEnd="30dp"
+            app:circle_button_value="@string/value_70" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -267,200 +140,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat">
 
-        <com.google.android.material.card.MaterialCardView
+        <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="30dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="2dp"
-            app:rippleColor="@color/flame"
-            app:strokeColor="@color/pale"
-            app:strokeWidth="1dp">
+            app:circle_button_value="@string/value_100" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_real"
-                    android:textAlignment="center"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/value_100"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
+        <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="30dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="2dp"
-            app:rippleColor="@color/flame"
-            app:strokeColor="@color/pale"
-            app:strokeWidth="1dp">
+            app:circle_button_value="@string/value_150" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_real"
-                    android:textAlignment="center"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/value_150"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
+        <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="30dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="2dp"
-            app:rippleColor="@color/flame"
-            app:strokeColor="@color/pale"
-            app:strokeWidth="1dp">
+            app:circle_button_value="@string/value_200" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_real"
-                    android:textAlignment="center"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/value_200"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
+        <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:cardCornerRadius="50dp"
-            app:cardElevation="2dp"
-            app:rippleColor="@color/flame"
-            app:strokeColor="@color/pale"
-            app:strokeWidth="1dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_real"
-                    android:textAlignment="center"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/value_250"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
+            android:layout_marginEnd="30dp"
+            app:circle_button_value="@string/value_250" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/material_card_other_value"
+    <br.com.gascheck.util.CircleButtonValue
+        android:id="@+id/circle_button_other"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="50dp"
-        app:cardElevation="2dp"
+        app:circle_button_value="@string/others"
         app:layout_constraintStart_toStartOf="@+id/linearLayoutCompat2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat2"
-        app:rippleColor="@color/flame"
-        app:strokeColor="@color/pale"
-        app:strokeWidth="1dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/symbol_real"
-                android:textAlignment="center"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/others"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
