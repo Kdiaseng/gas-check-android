@@ -96,10 +96,10 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat"
         android:layout_width="0dp"
-        android:padding="5dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="start"
+        android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_choice_value">
@@ -108,25 +108,25 @@
             android:id="@+id/circle_button_20"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_20" />
 
         <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_30" />
 
         <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_50" />
 
         <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_70" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -137,6 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="start"
+        android:paddingBottom="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat">
@@ -144,25 +145,25 @@
         <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_100" />
 
         <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_150" />
 
         <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_200" />
 
         <br.com.gascheck.util.CircleButtonValue
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_250" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
