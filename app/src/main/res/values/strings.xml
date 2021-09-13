@@ -27,4 +27,5 @@
     <string name="ask_gas_message">Quanto você deseja abastecer?</string>
     <string name="confirm_action">Confirmar</string>
     <string name="value_0">0,00</string>
+    <string name="item_value">%s %s %s</string>
 </resources>
