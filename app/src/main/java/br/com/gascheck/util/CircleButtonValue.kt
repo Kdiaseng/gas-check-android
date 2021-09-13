@@ -18,7 +18,7 @@ class CircleButtonValue @JvmOverloads constructor(
 
     private var value: String? = null
     private val binding = CircleButtonValueBinding.inflate(LayoutInflater.from(context), this, true)
-    var listener: (() -> Unit)? = null
+    private var listener: (() -> Unit)? = null
 
     init {
         setLayout(attrs)

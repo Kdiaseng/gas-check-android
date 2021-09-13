@@ -32,7 +32,7 @@
             android:id="@+id/chip_gasoline"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:checked="true"
             android:text="@string/gasoline_label"
             android:textAlignment="center" />
@@ -41,7 +41,7 @@
             android:id="@+id/chip_alcohol"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             android:layout_width="120dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="@string/alcohol_label"
             android:textAlignment="center" />
 
@@ -96,6 +96,7 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/linearLayoutCompat"
         android:layout_width="0dp"
+        android:padding="5dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:gravity="start"
