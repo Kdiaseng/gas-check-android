@@ -32,6 +32,8 @@ class HistoricAdapter : ListAdapter<GasDataUi, HistoricAdapter.HistoricHolder>(o
                 textItemDateRegister.text = context.getString(
                     R.string.item_value, dataGas.day, dataGas.month, dataGas.time
                 )
+                checkboxItemDislike.isChecked = dataGas.dislike?:false
+                checkboxItemLike.isChecked = dataGas.like?:false
             }
 
 

@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/ic_like_enable.xml" value="0.2708333333333333" />
         <entry key="app/src/main/res/drawable/ic_like_not_enable.xml" value="0.2708333333333333" />
         <entry key="app/src/main/res/drawable/selector_dislike.xml" value="0.2708333333333333" />
+        <entry key="app/src/main/res/drawable/selector_like.xml" value="0.265625" />
         <entry key="app/src/main/res/drawable/sl_like_dislike.xml" value="0.2708333333333333" />
         <entry key="app/src/main/res/drawable/stroke_color_card.xml" value="0.12962962962962962" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16602316602316602" />

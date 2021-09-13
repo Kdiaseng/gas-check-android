@@ -3,12 +3,13 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="0dp"
-    android:layout_margin="5dp"
-    android:layout_marginBottom="5dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:layout_marginBottom="5dp"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,7 +22,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -30,8 +33,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="GAS STATION"
+                android:textAppearance="?attr/textAppearanceListItem"
                 android:textColor="@color/black_olive"
-                android:textSize="16sp"
                 android:textStyle="bold" />
 
 
@@ -39,13 +42,17 @@
                 android:id="@+id/text_item_type_gas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Gasolina" />
+                android:alpha="0.9"
+                android:text="Gasolina"
+                android:textAppearance="?attr/textAppearanceCaption" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_item_date_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="09 Jan 20:55" />
+                android:alpha="0.9"
+                android:text="09 Jan 20:55"
+                android:textAppearance="?attr/textAppearanceCaption" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -54,33 +61,34 @@
             android:id="@+id/text_item_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="R$ 70,00"
+            android:textAppearance="?attr/textAppearanceBody1"
             android:textColor="@color/flame"
-            android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/image_item_menu"
             app:layout_constraintEnd_toStartOf="@+id/image_item_menu"
-            app:layout_constraintTop_toTopOf="@+id/image_item_menu" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/liner_texts"
-            app:layout_constraintTop_toBottomOf="@id/liner_texts"
-            tools:layout_editor_absoluteX="32dp">
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/text_item_value"
+            app:layout_constraintTop_toBottomOf="@+id/text_item_value">
 
             <CheckBox
                 android:id="@+id/checkbox_item_like"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="10dp"
                 android:button="@drawable/selector_like" />
 
             <CheckBox
                 android:id="@+id/checkbox_item_dislike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:button="@drawable/selector_dislike" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
