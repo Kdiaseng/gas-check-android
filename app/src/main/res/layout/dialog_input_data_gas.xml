@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipGroup"
+        android:id="@+id/chip_group_gas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -56,7 +56,7 @@
         android:background="@color/black_olive"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/chip_group_gas" />
 
     <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/switch_location"
@@ -67,7 +67,7 @@
         android:text="@string/register_location"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/chipGroup"
+        app:layout_constraintStart_toStartOf="@+id/chip_group_gas"
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:switchPadding="5dp" />
 
@@ -112,18 +112,21 @@
             app:circle_button_value="@string/value_20" />
 
         <br.com.gascheck.util.CircleButtonValue
+            android:id="@+id/circle_button_30"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_30" />
 
         <br.com.gascheck.util.CircleButtonValue
+            android:id="@+id/circle_button_50"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_50" />
 
         <br.com.gascheck.util.CircleButtonValue
+            android:id="@+id/circle_button_70"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="20dp"
@@ -143,24 +146,28 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat">
 
         <br.com.gascheck.util.CircleButtonValue
+            android:id="@+id/circle_button_100"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_100" />
 
         <br.com.gascheck.util.CircleButtonValue
+            android:id="@+id/circle_button_150"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_150" />
 
         <br.com.gascheck.util.CircleButtonValue
+            android:id="@+id/circle_button_200"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="20dp"
             app:circle_button_value="@string/value_200" />
 
         <br.com.gascheck.util.CircleButtonValue
+            android:id="@+id/circle_button_250"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="20dp"
