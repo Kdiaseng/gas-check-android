@@ -1,6 +1,8 @@
 package br.com.gascheck.domain.repository
 
 import br.com.gascheck.domain.model.GasData
+import br.com.gascheck.domain.utils.Result
+
 
 interface IGasDataRepository {
 
@@ -10,5 +12,5 @@ interface IGasDataRepository {
 
     suspend fun update(gasData: GasData)
 
-   suspend fun getGasDataByDyMonth(day: Int): List<GasData>
+    suspend fun getGasDataByDyMonth(day: Int): Result<List<GasData>>
 }

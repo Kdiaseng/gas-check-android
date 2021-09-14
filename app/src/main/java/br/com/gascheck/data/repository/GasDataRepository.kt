@@ -6,6 +6,7 @@ import br.com.gascheck.data.mapper.toEntity
 import br.com.gascheck.data.mapper.toListGasData
 import br.com.gascheck.domain.model.GasData
 import br.com.gascheck.domain.repository.IGasDataRepository
+import br.com.gascheck.domain.utils.Result
 import java.lang.Exception
 
 class GasDataRepository(private val dao: GasDataDao) : IGasDataRepository {
@@ -39,11 +40,11 @@ class GasDataRepository(private val dao: GasDataDao) : IGasDataRepository {
         }
     }
 
-    override suspend fun getGasDataByDyMonth(day: Int): List<GasData> {
+    override suspend fun getGasDataByDyMonth(day: Int): Result<List<GasData>> {
         return try {
-            dao.getGasDataByMonth().toListGasData()
+            Result.Success(dao.getGasDataByMonth().toListGasData())
         } catch (e: Exception) {
-            listOf()
+            Result.Error(e)
         }
     }
 
