@@ -17,6 +17,9 @@ class HistoryFragment : Fragment() {
 
     private lateinit var binding: FragmentHistoryBinding
     private val viewModel by viewModel<HistoricViewModel>()
+    private val adapter: HistoricAdapter by lazy {
+        HistoricAdapter()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,13 +33,36 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getDateGasList()
 
-        val adapter = HistoricAdapter()
+        setupListener()
+        setupObserver()
+
         binding.recyclerViewHistoric.adapter = adapter
 
-        viewModel.gasDataList.observe(viewLifecycleOwner) { list ->
-            adapter.submitList(list)
+
+    }
+
+    private fun setupObserver() {
+        with(viewModel) {
+            gasDataList.observe(viewLifecycleOwner) { list ->
+                adapter.submitList(list)
+            }
+            monthLiveData.observe(viewLifecycleOwner) { month ->
+                binding.textHistoricMonth.text = month
+            }
         }
 
+    }
+
+    private fun setupListener() {
+        with(binding) {
+            materialCardHistoricPrevious.setOnClickListener {
+                viewModel.previousMonth()
+            }
+
+            materialCardHistoricNext.setOnClickListener {
+                viewModel.nextMonth()
+            }
+        }
     }
 
 }
