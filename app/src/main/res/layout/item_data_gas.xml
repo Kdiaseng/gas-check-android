@@ -32,10 +32,10 @@
                 android:id="@+id/text_item_name_gas_station"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GAS STATION"
                 android:textAppearance="?attr/textAppearanceListItem"
                 android:textColor="@color/black_olive"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="GAS STATION" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -43,32 +43,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.9"
-                android:text="Gasolina"
-                android:textAppearance="?attr/textAppearanceCaption" />
+                android:textAppearance="?attr/textAppearanceCaption"
+                tools:text="Gas" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_item_date_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.9"
-                android:text="09 Jan 20:55"
-                android:textAppearance="?attr/textAppearanceCaption" />
+                android:textAppearance="?attr/textAppearanceCaption"
+                tools:text="09 Jan 20:55" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_item_value"
-            android:layout_width="wrap_content"
+            android:layout_width="68dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:text="R$ 70,00"
+            android:layout_marginEnd="16dp"
             android:textAppearance="?attr/textAppearanceBody1"
             android:textColor="@color/flame"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/image_item_menu"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="R$ 70,00" />
 
 
         <androidx.appcompat.widget.LinearLayoutCompat

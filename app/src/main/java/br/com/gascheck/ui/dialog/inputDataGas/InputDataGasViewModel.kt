@@ -32,7 +32,7 @@ class InputDataGasViewModel(private val userCase: IInsertGasDataUserCase) : View
 
     private fun buildDataGas(value: Int): GasData {
         val currentDate: String =
-            SimpleDateFormat("dd-MM-yyyy HH:mm:s", Locale.getDefault()).format(Date())
+            SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(Date())
         return GasData("Deconhecido", value.toDouble(), currentDate, typeGas.value)
     }
 

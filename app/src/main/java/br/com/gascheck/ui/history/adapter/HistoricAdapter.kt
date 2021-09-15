@@ -29,11 +29,12 @@ class HistoricAdapter : ListAdapter<GasDataUi, HistoricAdapter.HistoricHolder>(o
                 val context = this.root.context
                 textItemNameGasStation.text = dataGas.name
                 textItemTypeGas.text = dataGas.typeGas
+                textItemValue.text = dataGas.value
                 textItemDateRegister.text = context.getString(
                     R.string.item_value, dataGas.day, dataGas.month, dataGas.time
                 )
-                checkboxItemDislike.isChecked = dataGas.dislike?:false
-                checkboxItemLike.isChecked = dataGas.like?:false
+                checkboxItemDislike.isChecked = dataGas.dislike ?: false
+                checkboxItemLike.isChecked = dataGas.like ?: false
             }
 
 
@@ -51,7 +52,7 @@ class HistoricAdapter : ListAdapter<GasDataUi, HistoricAdapter.HistoricHolder>(o
                 false
             )
         )
-    
+
 
     override fun onBindViewHolder(holder: HistoricAdapter.HistoricHolder, position: Int) {
         holder.bind(getItem(position))
