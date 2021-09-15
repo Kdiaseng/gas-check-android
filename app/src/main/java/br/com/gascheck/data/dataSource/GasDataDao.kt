@@ -9,6 +9,7 @@ interface GasDataDao {
     @Query("SELECT * FROM GasDataEntity")
     fun getAll(): List<GasDataEntity>
 
+    @Query("SELECT * FROM GasDataEntity")
     fun getGasDataByMonth(): List<GasDataEntity>
 
     @Insert

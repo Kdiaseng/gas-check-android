@@ -2,12 +2,10 @@ package br.com.gascheck.util
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import br.com.gascheck.R
 import br.com.gascheck.databinding.CircleButtonValueBinding
-import com.google.android.material.card.MaterialCardView
 
 
 class CircleButtonValue @JvmOverloads constructor(

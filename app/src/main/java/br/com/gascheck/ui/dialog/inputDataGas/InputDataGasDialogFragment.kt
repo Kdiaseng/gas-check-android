@@ -9,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import br.com.gascheck.R
 import br.com.gascheck.databinding.DialogInputDataGasBinding
 import br.com.gascheck.domain.model.GasData
-import br.com.gascheck.util.CircleButtonValue
 import br.com.gascheck.util.TypeGas
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -33,10 +32,7 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupListener()
-
-
     }
 
     private fun setupListener() {
@@ -69,6 +65,7 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
     private fun insertGasData(value: Int) {
         val dateTime = Date().time.toString()
         val data = GasData("Deconhecido", value.toDouble(), dateTime)
+        Log.e("data",data.toString())
         viewModel.insertGasData(data)
     }
 

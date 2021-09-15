@@ -12,5 +12,5 @@ data class GasDataEntity(
     val dislike: Boolean = false
 ) {
     @PrimaryKey(autoGenerate = true)
-    val uid: Int = 0
+    var uid: Int = 0
 }

@@ -7,6 +7,8 @@ import br.com.gascheck.data.mapper.toListGasData
 import br.com.gascheck.domain.model.GasData
 import br.com.gascheck.domain.repository.IGasDataRepository
 import br.com.gascheck.domain.utils.Result
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.lang.Exception
 
 class GasDataRepository(private val dao: GasDataDao) : IGasDataRepository {
@@ -26,7 +28,7 @@ class GasDataRepository(private val dao: GasDataDao) : IGasDataRepository {
 
     override suspend fun insert(gasData: GasData) {
         try {
-            dao.insert(gasData.toEntity())
+            withContext(Dispatchers.IO) { dao.insert(gasData.toEntity()) }
         } catch (e: Exception) {
             Log.e(TAG, "insert ${e.message}")
         }
