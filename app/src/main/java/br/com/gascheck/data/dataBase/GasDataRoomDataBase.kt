@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import br.com.gascheck.data.dataSource.GasDataDao
 import br.com.gascheck.data.model.GasDataEntity
 
-@Database(entities = [GasDataEntity::class], version = 1, exportSchema = false)
+@Database(entities = [GasDataEntity::class], version = 2, exportSchema = false)
 abstract class GasDataRoomDataBase : RoomDatabase() {
     abstract fun gasDataDao(): GasDataDao
 }

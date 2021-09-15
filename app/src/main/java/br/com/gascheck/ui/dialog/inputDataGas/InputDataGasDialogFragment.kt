@@ -45,29 +45,21 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
                 }
             }
 
-            circleButtonOther.setOnClickListenerCircleButton {
-                findNavController().navigate(R.id.action_inputDataGasDialogFragment_to_inputOtherValueDialogFragment)
-            }
-
-            circleButton20.setOnClickListenerCircleButton { insertGasData(20) }
-            circleButton30.setOnClickListenerCircleButton { insertGasData(30) }
-            circleButton50.setOnClickListenerCircleButton { insertGasData(50) }
-            circleButton70.setOnClickListenerCircleButton { insertGasData(70) }
-            circleButton100.setOnClickListenerCircleButton { insertGasData(100) }
-            circleButton150.setOnClickListenerCircleButton { insertGasData(150) }
-            circleButton200.setOnClickListenerCircleButton { insertGasData(200) }
-            circleButton250.setOnClickListenerCircleButton { insertGasData(250) }
+            circleButtonOther.setOnClickListenerCircleButton { goToInputOtherValue() }
+            circleButton20.setOnClickListenerCircleButton { viewModel.insertGasData(20) }
+            circleButton30.setOnClickListenerCircleButton { viewModel.insertGasData(30) }
+            circleButton50.setOnClickListenerCircleButton { viewModel.insertGasData(50) }
+            circleButton70.setOnClickListenerCircleButton { viewModel.insertGasData(70) }
+            circleButton100.setOnClickListenerCircleButton { viewModel.insertGasData(100) }
+            circleButton150.setOnClickListenerCircleButton { viewModel.insertGasData(150) }
+            circleButton200.setOnClickListenerCircleButton { viewModel.insertGasData(200) }
+            circleButton250.setOnClickListenerCircleButton { viewModel.insertGasData(250) }
 
         }
 
     }
 
-    private fun insertGasData(value: Int) {
-        val dateTime = Date().time.toString()
-        val data = GasData("Deconhecido", value.toDouble(), dateTime)
-        Log.e("data",data.toString())
-        viewModel.insertGasData(data)
+    private fun goToInputOtherValue() {
+        findNavController().navigate(R.id.action_inputDataGasDialogFragment_to_inputOtherValueDialogFragment)
     }
-
-
 }

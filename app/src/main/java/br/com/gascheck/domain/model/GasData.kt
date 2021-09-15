@@ -4,6 +4,7 @@ data class GasData(
     val name: String,
     val value: Double,
     val date: String,
+    val typeGas: String,
     val id: Int? = null,
     val like: Boolean = false,
     val dislike: Boolean = false
