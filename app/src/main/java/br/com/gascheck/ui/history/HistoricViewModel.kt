@@ -44,21 +44,30 @@ class HistoricViewModel(private val useCase: IGetGasDataByMonthUseCase) : ViewMo
     val valueTotalLiveData: LiveData<String> = _valueTotalLiveData
 
     private var monthString = getMonthCurrentString()
+    private var yearString = getYearCurrentString()
+
 
     fun getDateGasList() {
         viewModelScope.launch {
             _monthLiveData.value = monthsMap.getValue(monthString)
-            _gasDataList.value = useCase(monthString).toListGasDataUi()
+            _gasDataList.value = useCase(monthString, yearString).toListGasDataUi()
 
             _gasDataList.value?.let { list ->
-                val listValues = list.map { it.value.toDouble() }
-                val sum = listValues.reduce { acc, d -> acc + d }
-                _valueTotalLiveData.value = sum.toString()
-
+                if (list.isNotEmpty()) {
+                    val listValues = list.map { it.value.toDouble() }
+                    val sum = listValues.reduce { acc, d -> acc + d }
+                    _valueTotalLiveData.value = sum.toString()
+                } else {
+                    _valueTotalLiveData.value = "00,00"
+                }
 
             }
         }
     }
+
+    private fun getYearCurrentString() =
+        Calendar.getInstance().get(Calendar.YEAR).toString()
+
 
     private fun getMonthCurrentString(): String {
         val simpleDateFormat = SimpleDateFormat("MM", Locale.getDefault())
@@ -83,12 +92,18 @@ class HistoricViewModel(private val useCase: IGetGasDataByMonthUseCase) : ViewMo
         val keys = monthsMap.keys
         val indexCurrentMonth = keys.indexOf(monthString)
         val indexPreviousMonth = indexCurrentMonth - 1
-
+        Log.e(TAG, yearString)
         if (indexPreviousMonth >= 0) {
             val previousMonth = keys.elementAt(indexPreviousMonth)
             Log.e(TAG, previousMonth)
             monthString = previousMonth
             getDateGasList()
+        } else {
+            monthString = "12"
+            yearString = (yearString.toInt() - 1).toString()
+            Log.e(TAG, yearString)
+            _monthLiveData.value = monthsMap.getValue(monthString) +" "+ yearString
+
         }
 
     }

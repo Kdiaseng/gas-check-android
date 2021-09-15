@@ -12,5 +12,5 @@ interface IGasDataRepository {
 
     suspend fun update(gasData: GasData)
 
-    suspend fun getGasDataByDyMonth(month: String): Result<List<GasData>>
+    suspend fun getGasDataByDyMonth(month: String, year: String): Result<List<GasData>>
 }

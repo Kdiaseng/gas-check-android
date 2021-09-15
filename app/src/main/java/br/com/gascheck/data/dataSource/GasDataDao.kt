@@ -10,8 +10,9 @@ interface GasDataDao {
     @Query("SELECT * FROM GasDataEntity")
     fun getAll(): List<GasDataEntity>
 
-    @Query("SELECT * FROM GasDataEntity WHERE  strftime('%m',date) =:month")
-    fun getGasDataByMonth(month: String): List<GasDataEntity>
+    @Query("SELECT * FROM GasDataEntity" +
+            " WHERE  strftime('%m',date) =:month AND strftime('%Y',date) =:year")
+    fun getGasDataByMonth(month: String, year: String): List<GasDataEntity>
 
     @Insert
     fun insert(gasData: GasDataEntity)
