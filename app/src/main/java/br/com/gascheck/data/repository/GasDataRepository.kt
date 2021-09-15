@@ -42,10 +42,10 @@ class GasDataRepository(private val dao: GasDataDao) : IGasDataRepository {
         }
     }
 
-    override suspend fun getGasDataByDyMonth(day: Int): Result<List<GasData>> {
+    override suspend fun getGasDataByDyMonth(month: String): Result<List<GasData>> {
         return try {
             withContext(Dispatchers.IO) {
-                Result.Success(dao.getAll().toListGasData())
+                Result.Success(dao.getGasDataByMonth(month.toString()).toListGasData())
             }
         } catch (e: Exception) {
             Log.e(TAG, "getGasDataByDyMonth ${e.message}")

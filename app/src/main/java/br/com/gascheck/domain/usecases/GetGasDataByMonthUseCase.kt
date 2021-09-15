@@ -6,13 +6,13 @@ import br.com.gascheck.domain.utils.Result
 
 
 interface IGetGasDataByMonthUseCase {
-    suspend operator fun invoke(): List<GasData>
+    suspend operator fun invoke(month: String): List<GasData>
 }
 
 class GetGasDataByMonthUseCase(private val repository: IGasDataRepository) :
     IGetGasDataByMonthUseCase {
-    override suspend fun invoke(): List<GasData> {
-        return when (val response = repository.getGasDataByDyMonth(9)) {
+    override suspend fun invoke(month: String): List<GasData> {
+        return when (val response = repository.getGasDataByDyMonth(month)) {
             is Result.Success -> response.data
             is Result.Error -> listOf()
         }

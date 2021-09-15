@@ -10,7 +10,7 @@ import java.util.*
 fun List<GasData>.toListGasDataUi() = this.map { it.toGasDataUi() }
 
 fun GasData.toGasDataUi(): GasDataUi {
-    val format = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault())
+    val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
     val data = format.parse(this.date)
     val day = DateFormat.format("dd", data) as String
     val month = DateFormat.format("MMM", data) as String

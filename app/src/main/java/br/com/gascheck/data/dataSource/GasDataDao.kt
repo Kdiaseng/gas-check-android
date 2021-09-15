@@ -2,6 +2,7 @@ package br.com.gascheck.data.dataSource
 
 import androidx.room.*
 import br.com.gascheck.data.model.GasDataEntity
+import java.time.YearMonth
 
 @Dao
 interface GasDataDao {
@@ -9,8 +10,8 @@ interface GasDataDao {
     @Query("SELECT * FROM GasDataEntity")
     fun getAll(): List<GasDataEntity>
 
-    @Query("SELECT * FROM GasDataEntity")
-    fun getGasDataByMonth(): List<GasDataEntity>
+    @Query("SELECT * FROM GasDataEntity WHERE  strftime('%m',date) =:month")
+    fun getGasDataByMonth(month: String): List<GasDataEntity>
 
     @Insert
     fun insert(gasData: GasDataEntity)
