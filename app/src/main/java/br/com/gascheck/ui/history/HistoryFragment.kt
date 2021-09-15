@@ -49,6 +49,10 @@ class HistoryFragment : Fragment() {
             monthLiveData.observe(viewLifecycleOwner) { month ->
                 binding.textHistoricMonth.text = month
             }
+
+            valueTotalLiveData.observe(viewLifecycleOwner) {
+                binding.textHistoricTotal.text = getString(R.string.value_total, it)
+            }
         }
 
     }

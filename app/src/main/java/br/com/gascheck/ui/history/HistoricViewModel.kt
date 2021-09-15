@@ -40,12 +40,23 @@ class HistoricViewModel(private val useCase: IGetGasDataByMonthUseCase) : ViewMo
     private val _monthLiveData = MutableLiveData<String>()
     val monthLiveData: LiveData<String> = _monthLiveData
 
+    private val _valueTotalLiveData = MutableLiveData<String>()
+    val valueTotalLiveData: LiveData<String> = _valueTotalLiveData
+
     private var monthString = getMonthCurrentString()
 
     fun getDateGasList() {
         viewModelScope.launch {
             _monthLiveData.value = monthsMap.getValue(monthString)
             _gasDataList.value = useCase(monthString).toListGasDataUi()
+
+            _gasDataList.value?.let { list ->
+                val listValues = list.map { it.value.toDouble() }
+                val sum = listValues.reduce { acc, d -> acc + d }
+                _valueTotalLiveData.value = sum.toString()
+
+
+            }
         }
     }
 

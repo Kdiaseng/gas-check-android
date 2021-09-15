@@ -42,7 +42,6 @@
                 android:id="@+id/text_item_type_gas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:alpha="0.9"
                 android:textAppearance="?attr/textAppearanceCaption"
                 tools:text="Gas" />
 
@@ -50,7 +49,6 @@
                 android:id="@+id/text_item_date_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:alpha="0.9"
                 android:textAppearance="?attr/textAppearanceCaption"
                 tools:text="09 Jan 20:55" />
 
