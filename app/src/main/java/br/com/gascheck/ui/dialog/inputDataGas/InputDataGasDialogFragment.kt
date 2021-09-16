@@ -46,17 +46,22 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
             }
 
             circleButtonOther.setOnClickListenerCircleButton { goToInputOtherValue() }
-            circleButton20.setOnClickListenerCircleButton { viewModel.insertGasData(20) }
-            circleButton30.setOnClickListenerCircleButton { viewModel.insertGasData(30) }
-            circleButton50.setOnClickListenerCircleButton { viewModel.insertGasData(50) }
-            circleButton70.setOnClickListenerCircleButton { viewModel.insertGasData(70) }
-            circleButton100.setOnClickListenerCircleButton { viewModel.insertGasData(100) }
-            circleButton150.setOnClickListenerCircleButton { viewModel.insertGasData(150) }
-            circleButton200.setOnClickListenerCircleButton { viewModel.insertGasData(200) }
-            circleButton250.setOnClickListenerCircleButton { viewModel.insertGasData(250) }
+            circleButton20.setOnClickListenerCircleButton { actionCircleButton(20) }
+            circleButton30.setOnClickListenerCircleButton { actionCircleButton(30) }
+            circleButton50.setOnClickListenerCircleButton { actionCircleButton(50) }
+            circleButton70.setOnClickListenerCircleButton { actionCircleButton(70) }
+            circleButton100.setOnClickListenerCircleButton { actionCircleButton(100) }
+            circleButton150.setOnClickListenerCircleButton { actionCircleButton(150) }
+            circleButton200.setOnClickListenerCircleButton { actionCircleButton(200) }
+            circleButton250.setOnClickListenerCircleButton { actionCircleButton(250) }
 
         }
 
+    }
+
+    private fun actionCircleButton(value: Int) {
+        viewModel.insertGasData(value)
+        findNavController().popBackStack()
     }
 
     private fun goToInputOtherValue() {
