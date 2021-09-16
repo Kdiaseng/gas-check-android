@@ -20,6 +20,9 @@ class HistoricAdapter : ListAdapter<GasDataUi, HistoricAdapter.HistoricHolder>(o
 
 }) {
 
+    var onClickDislikeListener: ((GasDataUi) -> Unit)? = null
+    var onClickLikeListener: ((GasDataUi) -> Unit)? = null
+
     inner class HistoricHolder(private val itemDataGasBinding: ItemDataGasBinding) :
         RecyclerView.ViewHolder(itemDataGasBinding.root) {
 
@@ -33,8 +36,16 @@ class HistoricAdapter : ListAdapter<GasDataUi, HistoricAdapter.HistoricHolder>(o
                 textItemDateRegister.text = context.getString(
                     R.string.item_value, dataGas.day, dataGas.month, dataGas.time
                 )
-                checkboxItemDislike.isChecked = dataGas.dislike ?: false
-                checkboxItemLike.isChecked = dataGas.like ?: false
+                radiobuttonDislike.isChecked = dataGas.dislike ?: false
+                radiobuttonDislike.isChecked = dataGas.like ?: false
+
+                radioGroupLikes.setOnCheckedChangeListener { _, id ->
+                    when (id) {
+                        R.id.radiobutton_like -> onClickLikeListener?.invoke(dataGas)
+                        R.id.radiobutton_dislike -> onClickDislikeListener?.invoke(dataGas)
+                    }
+                }
+
             }
 
 

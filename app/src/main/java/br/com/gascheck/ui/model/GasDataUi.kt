@@ -9,5 +9,6 @@ data class GasDataUi(
     val time: String,
     var like: Boolean? = null,
     var dislike: Boolean? = null,
-    val value: String
+    val value: String,
+    val dateTime: String,
 )

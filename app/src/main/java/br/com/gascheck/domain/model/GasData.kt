@@ -6,6 +6,6 @@ data class GasData(
     val date: String,
     val typeGas: String,
     val id: Int? = null,
-    val like: Boolean = false,
-    val dislike: Boolean = false
+    var like: Boolean = false,
+    var dislike: Boolean = false
 )

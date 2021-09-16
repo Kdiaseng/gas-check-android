@@ -36,7 +36,8 @@ class GasDataRepository(private val dao: GasDataDao) : IGasDataRepository {
 
     override suspend fun update(gasData: GasData) {
         try {
-            dao.update(gasData.toEntity())
+            Log.e(TAG,gasData.toEntity().toString())
+            withContext(Dispatchers.IO) { dao.update(gasData.toEntity()) }
         } catch (e: Exception) {
             Log.e(TAG, "update ${e.message}")
         }

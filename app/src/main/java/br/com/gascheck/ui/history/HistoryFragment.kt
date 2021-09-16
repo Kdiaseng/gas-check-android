@@ -18,7 +18,33 @@ class HistoryFragment : Fragment() {
     private lateinit var binding: FragmentHistoryBinding
     private val viewModel by viewModel<HistoricViewModel>()
     private val adapter: HistoricAdapter by lazy {
-        HistoricAdapter()
+        HistoricAdapter().apply {
+
+            onClickDislikeListener = {
+                enableLike(it)
+            }
+            onClickLikeListener = {
+                enableDislike(it)
+            }
+        }
+    }
+
+    private fun enableDislike(it: GasDataUi) {
+        val data = it.apply {
+            like = true
+            dislike = false
+        }
+        Log.e("data", data.toString())
+        viewModel.updateLike(data)
+    }
+
+    private fun enableLike(it: GasDataUi) {
+        val data = it.apply {
+            dislike = true
+            like = false
+        }
+
+        viewModel.updateLike(data)
     }
 
     override fun onCreateView(

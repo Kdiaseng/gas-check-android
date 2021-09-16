@@ -25,6 +25,20 @@ fun GasData.toGasDataUi(): GasDataUi {
         hour,
         like,
         dislike,
-        this.value.toString()
+        this.value.toString(),
+        this.date
     )
 }
+
+
+fun GasDataUi.toGasData() =
+    GasData(
+        name,
+        value.toDouble(),
+        dateTime,
+        typeGas, id,
+        like ?: false,
+        dislike ?: false
+    )
+
+

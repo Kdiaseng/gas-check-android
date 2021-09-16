@@ -7,5 +7,5 @@ import org.koin.dsl.module
 
 val presentationModule = module {
     viewModel { InputDataGasViewModel(get()) }
-    viewModel { HistoricViewModel(get()) }
+    viewModel { HistoricViewModel(get(), get()) }
 }

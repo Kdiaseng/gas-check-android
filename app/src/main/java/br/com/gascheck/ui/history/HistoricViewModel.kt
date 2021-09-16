@@ -6,13 +6,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.gascheck.domain.usecases.IGetGasDataByMonthUseCase
+import br.com.gascheck.domain.usecases.IUpdateGasDataUseCase
+import br.com.gascheck.ui.mapper.toGasData
 import br.com.gascheck.ui.mapper.toListGasDataUi
 import br.com.gascheck.ui.model.GasDataUi
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
-class HistoricViewModel(private val useCase: IGetGasDataByMonthUseCase) : ViewModel() {
+
+class HistoricViewModel(
+    private val getGasDataByMonthUseCase: IGetGasDataByMonthUseCase,
+    private val updateGasDataUseCase: IUpdateGasDataUseCase
+) :
+    ViewModel() {
 
     companion object {
         const val TAG = "HistoricViewModel"
@@ -49,10 +56,17 @@ class HistoricViewModel(private val useCase: IGetGasDataByMonthUseCase) : ViewMo
     private var yearString = getYearCurrentString()
 
 
+    fun updateLike(gasDataUi: GasDataUi) {
+        viewModelScope.launch {
+            updateGasDataUseCase(gasDataUi.toGasData())
+        }
+    }
+
+
     fun getDateGasList() {
         viewModelScope.launch {
             _monthLiveData.value = monthsMap.getValue(monthString) + " " + yearString
-            _gasDataList.value = useCase(monthString, yearString).toListGasDataUi()
+            _gasDataList.value = getGasDataByMonthUseCase(monthString, yearString).toListGasDataUi()
 
             _gasDataList.value?.let { list ->
                 if (list.isNotEmpty()) {
@@ -111,7 +125,6 @@ class HistoricViewModel(private val useCase: IGetGasDataByMonthUseCase) : ViewMo
             yearString = (yearString.toInt() - 1).toString()
             Log.e(TAG, yearString)
             _monthLiveData.value = monthsMap.getValue(monthString) + " " + yearString
-
         }
 
     }
