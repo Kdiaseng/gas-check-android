@@ -71,7 +71,7 @@ class HistoricViewModel(
             _gasDataList.value?.let { list ->
                 if (list.isNotEmpty()) {
                     val listValues = list.map { it.value.toDouble() }
-                    val sum = listValues.reduce { acc, d -> acc + d }
+                    val sum = listValues.reduce { previous, next -> previous + next }
                     _valueTotalLiveData.value = sum.toString()
                 } else {
                     _valueTotalLiveData.value = "00,00"

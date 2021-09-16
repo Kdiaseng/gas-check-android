@@ -61,7 +61,9 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
 
     private fun actionCircleButton(value: Int) {
         viewModel.insertGasData(value)
-        findNavController().popBackStack()
+        val navController = findNavController()
+        navController.previousBackStackEntry?.savedStateHandle?.set("key", "pop")
+        navController.popBackStack(R.id.homeFragment, false)
     }
 
     private fun goToInputOtherValue() {
