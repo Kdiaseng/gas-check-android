@@ -17,6 +17,8 @@ class HistoricViewModel(private val useCase: IGetGasDataByMonthUseCase) : ViewMo
     companion object {
         const val TAG = "HistoricViewModel"
         const val DEZ_INDEX = 11
+        const val JAN_NUMBER = "01"
+        const val DEZ_NUMBER = "12"
     }
 
     private val monthsMap = mapOf(
@@ -49,7 +51,7 @@ class HistoricViewModel(private val useCase: IGetGasDataByMonthUseCase) : ViewMo
 
     fun getDateGasList() {
         viewModelScope.launch {
-            _monthLiveData.value = monthsMap.getValue(monthString)
+            _monthLiveData.value = monthsMap.getValue(monthString) + " " + yearString
             _gasDataList.value = useCase(monthString, yearString).toListGasDataUi()
 
             _gasDataList.value?.let { list ->
@@ -84,6 +86,12 @@ class HistoricViewModel(private val useCase: IGetGasDataByMonthUseCase) : ViewMo
             monthString = nextMonth
             Log.e(TAG, nextMonth)
             getDateGasList()
+        } else {
+            monthString = JAN_NUMBER
+            Log.e(TAG, monthString)
+            val nextYear = yearString.toInt() + 1
+            yearString = nextYear.toString()
+            _monthLiveData.value = monthsMap.getValue(monthString) + " " + yearString
         }
 
     }
@@ -99,10 +107,10 @@ class HistoricViewModel(private val useCase: IGetGasDataByMonthUseCase) : ViewMo
             monthString = previousMonth
             getDateGasList()
         } else {
-            monthString = "12"
+            monthString = DEZ_NUMBER
             yearString = (yearString.toInt() - 1).toString()
             Log.e(TAG, yearString)
-            _monthLiveData.value = monthsMap.getValue(monthString) +" "+ yearString
+            _monthLiveData.value = monthsMap.getValue(monthString) + " " + yearString
 
         }
 
