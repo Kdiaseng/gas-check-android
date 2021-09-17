@@ -1,6 +1,7 @@
 package br.com.gascheck.ui.di
 
 import br.com.gascheck.ui.dialog.inputDataGas.InputDataGasViewModel
+import br.com.gascheck.ui.dialog.inputOtherValue.InputOtherValueViewModel
 import br.com.gascheck.ui.history.HistoricViewModel
 import br.com.gascheck.ui.home.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -10,4 +11,5 @@ val presentationModule = module {
     viewModel { InputDataGasViewModel(get()) }
     viewModel { HistoricViewModel(get(), get()) }
     viewModel { HomeViewModel(get()) }
+    viewModel { InputOtherValueViewModel(get()) }
 }

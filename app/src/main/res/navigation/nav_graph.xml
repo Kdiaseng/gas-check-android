@@ -30,13 +30,26 @@
         android:name="br.com.gascheck.ui.dialog.inputDataGas.InputDataGasDialogFragment"
         android:label="InputDataGasDialogFragment"
         tools:layout="@layout/dialog_input_data_gas">
+
         <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/inputDataGasDialogFragment"
             android:id="@+id/action_inputDataGasDialogFragment_to_inputOtherValueDialogFragment"
             app:destination="@id/inputOtherValueDialogFragment" />
+
     </dialog>
     <dialog
         android:id="@+id/inputOtherValueDialogFragment"
         android:name="br.com.gascheck.ui.dialog.inputOtherValue.InputOtherValueDialogFragment"
         android:label="InputOtherValueDialogFragment"
-        tools:layout="@layout/dialog_input_other_value" />
+        tools:layout="@layout/dialog_input_other_value" >
+        <argument
+            android:name="gas"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            app:nullable="true"
+            android:name="address"
+            app:argType="string" />
+    </dialog>
 </navigation>

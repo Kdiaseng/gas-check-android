@@ -62,8 +62,8 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
 
     private fun actionCircleButton(value: Int) {
 
-       val hasLocation =  binding.switchLocation.isChecked
-        if (hasLocation){
+        val hasLocation = binding.switchLocation.isChecked
+        if (hasLocation) {
             (activity as MainActivity).getLastLocation()
             val locationCurrent = (activity as MainActivity).locationCurrent
             locationCurrent?.let {
@@ -71,7 +71,7 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
                 viewModel.insertGasData(value, address)
                 popBackHome()
             }
-        }else{
+        } else {
             viewModel.insertGasData(value, "Desconhecido")
             popBackHome()
         }
@@ -92,6 +92,21 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
     }
 
     private fun goToInputOtherValue() {
-        findNavController().navigate(R.id.action_inputDataGasDialogFragment_to_inputOtherValueDialogFragment)
+        val hasLocation = binding.switchLocation.isChecked
+        val typeGas = viewModel.typeGas.value
+
+        if (hasLocation) {
+            (activity as MainActivity).getLastLocation()
+            val locationCurrent = (activity as MainActivity).locationCurrent
+            locationCurrent?.let {
+                val address = getAddress(it.latitude, it.longitude)
+                val action =
+                    InputDataGasDialogFragmentDirections.actionInputDataGasDialogFragmentToInputOtherValueDialogFragment(
+                        typeGas,
+                        address
+                    )
+                findNavController().navigate(action)
+            }
+        }
     }
 }

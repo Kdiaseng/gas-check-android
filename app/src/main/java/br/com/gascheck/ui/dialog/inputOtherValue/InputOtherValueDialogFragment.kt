@@ -8,12 +8,21 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import br.com.gascheck.R
 import br.com.gascheck.databinding.DialogInputOtherValueBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class InputOtherValueDialogFragment : DialogFragment() {
 
     private lateinit var binding: DialogInputOtherValueBinding
+
+   private val args: InputOtherValueDialogFragmentArgs by navArgs()
+
+    private val viewModel by viewModel<InputOtherValueViewModel>()
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,6 +35,7 @@ class InputOtherValueDialogFragment : DialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.FullScreenDialog)
+
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -48,6 +58,16 @@ class InputOtherValueDialogFragment : DialogFragment() {
 
         binding.topAppBar.setNavigationOnClickListener {
             findNavController().popBackStack()
+        }
+
+        binding.materialButtonConfirm.setOnClickListener {
+            val value = binding.currencyTextValue.getNumericValue()
+            val gas = args.gas
+            val address = args.address
+            if (gas != null && address != null && value != null) {
+                viewModel.insertGasData(value, address, gas)
+                findNavController().popBackStack()
+            }
         }
     }
 
