@@ -40,7 +40,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:singleLine="true"
-                tools:text="GAS STATIONfdfdfdfdfdfsvdvdvvdvdvdvd" />
+                tools:text="GAS STATION" />
 
 
             <androidx.appcompat.widget.AppCompatTextView

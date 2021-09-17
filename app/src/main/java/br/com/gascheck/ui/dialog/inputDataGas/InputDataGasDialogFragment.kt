@@ -62,17 +62,26 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
 
     private fun actionCircleButton(value: Int) {
 
-        (activity as MainActivity).getLastLocation()
-        val locationCurrent = (activity as MainActivity).locationCurrent
-        locationCurrent?.let {
-            val address = getAddress(it.latitude, it.longitude)
-            viewModel.insertGasData(value, address)
-
-            val navController = findNavController()
-            navController.previousBackStackEntry?.savedStateHandle?.set("key", "pop")
-            navController.popBackStack(R.id.homeFragment, false)
+       val hasLocation =  binding.switchLocation.isChecked
+        if (hasLocation){
+            (activity as MainActivity).getLastLocation()
+            val locationCurrent = (activity as MainActivity).locationCurrent
+            locationCurrent?.let {
+                val address = getAddress(it.latitude, it.longitude)
+                viewModel.insertGasData(value, address)
+                popBackHome()
+            }
+        }else{
+            viewModel.insertGasData(value, "Desconhecido")
+            popBackHome()
         }
 
+    }
+
+    private fun popBackHome(): Boolean {
+        val navController = findNavController()
+        navController.previousBackStackEntry?.savedStateHandle?.set("key", "pop")
+        return navController.popBackStack(R.id.homeFragment, false)
     }
 
 
