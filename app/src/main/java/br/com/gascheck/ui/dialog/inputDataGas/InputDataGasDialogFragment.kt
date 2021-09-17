@@ -1,15 +1,19 @@
 package br.com.gascheck.ui.dialog.inputDataGas
 
+import android.location.Geocoder
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import br.com.gascheck.R
 import br.com.gascheck.databinding.DialogInputDataGasBinding
+import br.com.gascheck.ui.MainActivity
 import br.com.gascheck.util.TypeGas
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
 
 class InputDataGasDialogFragment : BottomSheetDialogFragment() {
 
@@ -57,10 +61,25 @@ class InputDataGasDialogFragment : BottomSheetDialogFragment() {
     }
 
     private fun actionCircleButton(value: Int) {
-        viewModel.insertGasData(value)
-        val navController = findNavController()
-        navController.previousBackStackEntry?.savedStateHandle?.set("key", "pop")
-        navController.popBackStack(R.id.homeFragment, false)
+
+        (activity as MainActivity).getLastLocation()
+        val locationCurrent = (activity as MainActivity).locationCurrent
+        locationCurrent?.let {
+            val address = getAddress(it.latitude, it.longitude)
+            viewModel.insertGasData(value, address)
+
+            val navController = findNavController()
+            navController.previousBackStackEntry?.savedStateHandle?.set("key", "pop")
+            navController.popBackStack(R.id.homeFragment, false)
+        }
+
+    }
+
+
+    private fun getAddress(latitude: Double, longitude: Double): String {
+        val geocoder = Geocoder(requireContext(), Locale.getDefault())
+        val address = geocoder.getFromLocation(latitude, longitude, 1)
+        return address[0].getAddressLine(0)
     }
 
     private fun goToInputOtherValue() {

@@ -19,10 +19,10 @@ class InputDataGasViewModel(private val userCase: IInsertGasDataUserCase) : View
 
     var typeGas: TypeGas = TypeGas.GASOLINE
 
-    fun insertGasData(value: Int) {
+    fun insertGasData(value: Int, address: String) {
         viewModelScope.launch {
             try {
-                userCase(buildDataGas(value))
+                userCase(buildDataGas(value, address))
                 _insertSuccess.value = true
             } catch (e: Exception) {
                 _insertSuccess.value = false
@@ -30,10 +30,10 @@ class InputDataGasViewModel(private val userCase: IInsertGasDataUserCase) : View
         }
     }
 
-    private fun buildDataGas(value: Int): GasData {
+    private fun buildDataGas(value: Int, address: String): GasData {
         val currentDate: String =
             SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
-        return GasData("Deconhecido", value.toDouble(), currentDate, typeGas.value)
+        return GasData(address, value.toDouble(), currentDate, typeGas.value)
     }
 
 }

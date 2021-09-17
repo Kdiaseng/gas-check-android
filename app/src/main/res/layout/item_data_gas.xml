@@ -31,12 +31,16 @@
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/text_item_name_gas_station"
-                android:layout_width="wrap_content"
+                android:layout_width="230dp"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceListItem"
                 android:textColor="@color/black_olive"
                 android:textStyle="bold"
-                tools:text="GAS STATION" />
+                android:scrollHorizontally="true"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
+                tools:text="GAS STATIONfdfdfdfdfdfsvdvdvvdvdvdvd" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
