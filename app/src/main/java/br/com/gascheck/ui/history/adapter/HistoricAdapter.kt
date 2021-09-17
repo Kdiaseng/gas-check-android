@@ -36,8 +36,8 @@ class HistoricAdapter : ListAdapter<GasDataUi, HistoricAdapter.HistoricHolder>(o
                 textItemDateRegister.text = context.getString(
                     R.string.item_value, dataGas.day, dataGas.month, dataGas.time
                 )
-                radiobuttonDislike.isChecked = dataGas.dislike ?: false
-                radiobuttonDislike.isChecked = dataGas.like ?: false
+                radiobuttonDislike.isChecked = dataGas.dislike
+                radiobuttonLike.isChecked = dataGas.like
 
                 radioGroupLikes.setOnCheckedChangeListener { _, id ->
                     when (id) {

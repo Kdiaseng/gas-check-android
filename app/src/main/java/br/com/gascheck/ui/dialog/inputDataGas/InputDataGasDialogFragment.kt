@@ -1,18 +1,15 @@
 package br.com.gascheck.ui.dialog.inputDataGas
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import br.com.gascheck.R
 import br.com.gascheck.databinding.DialogInputDataGasBinding
-import br.com.gascheck.domain.model.GasData
 import br.com.gascheck.util.TypeGas
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.*
 
 class InputDataGasDialogFragment : BottomSheetDialogFragment() {
 

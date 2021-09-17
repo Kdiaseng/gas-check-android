@@ -37,8 +37,8 @@ fun GasDataUi.toGasData() =
         value.toDouble(),
         dateTime,
         typeGas, id,
-        like ?: false,
-        dislike ?: false
+        like,
+        dislike
     )
 
 

@@ -21,27 +21,28 @@ class HistoryFragment : Fragment() {
         HistoricAdapter().apply {
 
             onClickDislikeListener = {
-                enableLike(it)
+                enableDislike(it)
             }
             onClickLikeListener = {
-                enableDislike(it)
+                enableLike(it)
             }
         }
     }
 
     private fun enableDislike(it: GasDataUi) {
         val data = it.apply {
-            like = true
-            dislike = false
+            dislike = true
+            like = false
         }
+
         Log.e("data", data.toString())
         viewModel.updateLike(data)
     }
 
     private fun enableLike(it: GasDataUi) {
         val data = it.apply {
-            dislike = true
-            like = false
+            like = true
+            dislike = false
         }
 
         viewModel.updateLike(data)

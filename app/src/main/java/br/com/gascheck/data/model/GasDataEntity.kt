@@ -11,8 +11,8 @@ data class GasDataEntity(
     val date: String,
     @ColumnInfo(name = "type_gas")
     val typeGas: String,
-    val like: Boolean = false,
-    val dislike: Boolean = false
+    val like: Boolean = true,
+    val dislike: Boolean = true
 ) {
     @PrimaryKey(autoGenerate = true)
     var uid: Int = 0

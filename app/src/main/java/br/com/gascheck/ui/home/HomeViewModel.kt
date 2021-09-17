@@ -1,5 +1,6 @@
 package br.com.gascheck.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -36,7 +37,10 @@ class HomeViewModel(val getGasDataByMonthUseCase: IGetGasDataByMonthUseCase) : V
 
     private fun updateTotal(gasList: List<GasData>) {
         val listValues = gasList.map { it.value }
-        val sum = listValues.reduce { previous, next -> previous + next }
+        val sum = if (gasList.size > 1)
+            listValues.reduce { previous, next -> previous + next }
+         else
+            listValues[0]
         _totalLiveData.value = sum.toString()
     }
 

@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import br.com.gascheck.R
 import br.com.gascheck.databinding.FragmentHomeBinding
+import br.com.gascheck.ui.model.GasPercentage
 import br.com.gascheck.util.TypeGas
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.components.Legend
@@ -43,21 +44,25 @@ class HomeFragment : Fragment() {
     private fun setupObserver() {
         with(viewModel) {
             totalLiveData.observe(viewLifecycleOwner) { total ->
+                Log.e("total", total.toString())
                 binding.textSpentValue.text = total
             }
             gasPercentageList.observe(viewLifecycleOwner) { list ->
-                val gasoline =
-                    list.filter { it.name == TypeGas.GASOLINE.value }
-                        .map { it.percentage }
-                        .reduce { previous, next -> previous + next }
+                val gasolineList = list.filter { it.name == TypeGas.GASOLINE.value }
+                var gasoline = 0.0
+                var alcohol = 0.0
 
-                val alcohol = list.filter { it.name == TypeGas.ALCOHOL.value }
-                    .map { it.percentage }
-                    .reduce { previous, next -> previous + next }
+                if (gasolineList.isNotEmpty()) {
+                    gasoline =
+                        getValueTotalGasoline(gasolineList)
+                    binding.textGasolineValue.text = getString(R.string.spend_value, gasoline.toString())
+                }
+                val alcoholList = list.filter { it.name == TypeGas.ALCOHOL.value }
 
-                with(binding) {
-                    textGasolineValue.text = getString(R.string.spend_value, gasoline.toString())
-                    textAlcoholValue.text = getString(R.string.spend_value, alcohol.toString())
+                if (alcoholList.isNotEmpty()) {
+                    alcohol = getValueTotalGasoline(alcoholList)
+                    binding.textAlcoholValue.text =
+                        getString(R.string.spend_value, alcohol.toString())
                 }
 
                 setDataToChart(gasoline, alcohol)
@@ -67,6 +72,11 @@ class HomeFragment : Fragment() {
         }
 
     }
+
+    private fun getValueTotalGasoline(gasolineList: List<GasPercentage>) =
+        gasolineList
+            .map { it.percentage }
+            .reduce { previous, next -> previous + next }
 
     private fun setupListener() {
         binding.floatingAddDataGas.setOnClickListener {

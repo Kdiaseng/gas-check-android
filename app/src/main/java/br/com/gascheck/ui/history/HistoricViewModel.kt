@@ -68,6 +68,8 @@ class HistoricViewModel(
             _monthLiveData.value = monthsMap.getValue(monthString) + " " + yearString
             _gasDataList.value = getGasDataByMonthUseCase(monthString, yearString).toListGasDataUi()
 
+            Log.e("merda", _gasDataList.value.toString())
+
             _gasDataList.value?.let { list ->
                 if (list.isNotEmpty()) {
                     val listValues = list.map { it.value.toDouble() }
